@@ -25,26 +25,26 @@ function CountdownBase() {
 
   if (timeLeft.expired) {
     return (
-      <GlassPanel className="countdown-expired p-12 text-center" tilt={false}>
-        <p className="text-4xl font-bold text-[var(--c-text)] mb-4">The exam day has arrived.</p>
-        <p className="text-xl text-[var(--c-text-dim)]">Everything you prepared for starts now.</p>
+      <GlassPanel className="countdown-expired" tilt={false}>
+        <p className="countdown-expired__title">The exam day has arrived.</p>
+        <p className="countdown-expired__subtitle">Everything you prepared for starts now.</p>
       </GlassPanel>
     );
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 w-full max-w-5xl" role="group" aria-label="Countdown to NEET 2027 exam">
+    <div className="countdown-grid" role="group" aria-label="Countdown to NEET 2027 exam">
       {UNITS.map(({ key, label, icon: Icon }, index) => (
         <GlassPanel
           key={key}
-          className="p-6 md:p-8 text-center reveal-item"
-          style={{ animationDelay: `${0.15 + index * 0.08}s` }}
+          className="countdown-unit"
+          style={{ animationDelay: `${index * 90}ms` }}
         >
-          <Icon className="w-7 h-7 text-[var(--c-teal)] mx-auto mb-4" strokeWidth={1.5} aria-hidden="true" />
-          <div className="countdown-digit text-4xl md:text-6xl font-bold text-[var(--c-text)] mb-2">
+          <Icon className="countdown-unit__icon" strokeWidth={1.5} aria-hidden="true" />
+          <div className="countdown-unit__value">
             <AnimatedNumber value={timeLeft[key]} />
           </div>
-          <span className="text-xs md:text-sm uppercase tracking-widest text-[var(--c-text-dim)]">{label}</span>
+          <span className="countdown-unit__label">{label}</span>
           <span className="sr-only">
             {timeLeft[key]} {label}
           </span>

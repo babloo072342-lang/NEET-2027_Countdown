@@ -234,6 +234,77 @@ body {
   opacity: 1;
 }
 
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 720px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.4rem 0.75rem;
+  text-align: center;
+  opacity: 0;
+  animation: fade-up 0.7s var(--ease-premium) both;
+}
+
+.countdown-unit__icon {
+  width: 18px;
+  height: 18px;
+  color: var(--c-teal);
+  opacity: 0.85;
+}
+
+.countdown-unit__value {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 500;
+  color: var(--c-text);
+  letter-spacing: -0.02em;
+}
+
+.countdown-unit__label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--c-text-dim);
+}
+
+.countdown-expired {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  max-width: 560px;
+}
+
+.countdown-expired__title {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, var(--c-indigo), var(--c-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.countdown-expired__subtitle {
+  color: var(--c-text-dim);
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .countdown-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+}
+
 .ripple {
   position: absolute;
   border-radius: 50%;
