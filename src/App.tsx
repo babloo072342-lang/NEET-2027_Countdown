@@ -1,19 +1,12 @@
-import { useState, useCallback } from 'react';
 import { Star, Rocket, Calendar, Clock, Target, Zap, Trophy, Flame } from 'lucide-react';
 import { GlassPanel } from './components/GlassPanel';
-import { Aurora } from './components/Aurora';
+import { AuroraBackground } from './components/AuroraBackground';
+import { CursorGlow } from './components/CursorGlow';
+import { NoiseOverlay } from './components/NoiseOverlay';
 import { useCountdown } from './hooks/useCountdown';
-import { usePointerPosition } from './hooks/usePointerPosition';
 
 function App() {
-  const [pointerPos, setPointerPos] = useState({ x: 0, y: 0 });
   const timeLeft = useCountdown('2027-05-02T14:00:00+05:30');
-
-  const handlePointerMove = useCallback((x: number, y: number) => {
-    setPointerPos({ x, y });
-  }, []);
-
-  usePointerPosition(handlePointerMove);
 
   const timeUnits = [
     { label: 'Months', value: timeLeft.months, icon: Calendar },
@@ -25,7 +18,9 @@ function App() {
 
   return (
     <div className="min-h-screen relative">
-      <Aurora pointerX={pointerPos.x} pointerY={pointerPos.y} />
+      <AuroraBackground />
+      <CursorGlow />
+      <NoiseOverlay />
 
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
         <header className="text-center mb-16 reveal-item" style={{ animationDelay: '0.1s' }}>
