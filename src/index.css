@@ -305,6 +305,60 @@ body {
   }
 }
 
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1040px;
+}
+
+.pillar-card {
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  height: 100%;
+}
+
+.pillar-card__icon-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-card__icon {
+  width: 22px;
+  height: 22px;
+}
+
+.pillar-card__title {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--c-text);
+}
+
+.pillar-card__description {
+  margin: 0;
+  color: var(--c-text-dim);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 .ripple {
   position: absolute;
   border-radius: 50%;
