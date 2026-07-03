@@ -3,6 +3,7 @@ import { GlassPanel } from './components/GlassPanel';
 import { AuroraBackground } from './components/AuroraBackground';
 import { CursorGlow } from './components/CursorGlow';
 import { NoiseOverlay } from './components/NoiseOverlay';
+import { AnimatedNumber } from './components/AnimatedNumber';
 import { useCountdown } from './hooks/useCountdown';
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
                     <unit.icon className="w-7 h-7 text-[var(--c-teal)]" />
                   </div>
                   <div className="countdown-digit text-4xl md:text-6xl font-bold text-[var(--c-text)] mb-2">
-                    {String(unit.value).padStart(2, '0')}
+                    <AnimatedNumber value={unit.value} />
                   </div>
                   <div className="text-xs md:text-sm uppercase tracking-widest text-[var(--c-text-dim)]">
                     {unit.label}
