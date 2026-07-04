@@ -403,31 +403,30 @@ body {
 .wordmark {
   margin: 0;
   font-family: 'Cabinet Grotesk', system-ui, sans-serif;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--c-text-dim);
-}
-
-.headline {
-  margin: 0;
-  max-width: 780px;
-  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
   font-weight: 800;
-  font-size: clamp(2.1rem, 6vw, 4rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--c-text);
-}
-
-.headline__accent {
-  background: linear-gradient(135deg, var(--c-indigo), var(--c-teal) 60%, var(--c-gold));
+  font-size: clamp(3rem, 11vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--c-indigo), var(--c-teal) 55%, var(--c-gold));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+.tagline {
+  margin: 0;
+  max-width: 640px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--c-text-dim);
+}
+
+.tagline__accent {
+  color: var(--c-text);
+  font-weight: 600;
+}
 .hero__date {
   display: inline-flex;
   align-items: center;
