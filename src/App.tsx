@@ -19,29 +19,28 @@ function App() {
       <CursorGlow />
 
       <main className="page__content">
-        <section className="hero">
-          <span className="eyebrow reveal-item" style={{ animationDelay: '0ms' }}>
-            Mission NEET 2027
-          </span>
+      <section className="hero">
+  <span className="eyebrow reveal-item" style={{ animationDelay: '0ms' }}>
+    Mission NEET 2027
+  </span>
 
-          <p className="wordmark reveal-item" style={{ animationDelay: '90ms' }}>
-            Dr. Rajnandani
-          </p>
+  <h1 className="wordmark reveal-item" style={{ animationDelay: '90ms' }}>
+    DareDevil
+  </h1>
 
-          <h1 className="headline reveal-item" style={{ animationDelay: '180ms' }}>
-            Every second brings you closer
-            <span className="headline__accent"> to May 2, 2027.</span>
-          </h1>
+  <p className="tagline reveal-item" style={{ animationDelay: '180ms' }}>
+    Every second brings you closer <span className="tagline__accent">to May 2, 2027.</span>
+  </p>
 
-          <div className="hero__date reveal-item" style={{ animationDelay: '270ms' }}>
-            <Calendar className="hero__date-icon" strokeWidth={1.5} aria-hidden="true" />
-            <span>NEET UG 2027 &middot; 2:00 PM IST</span>
-          </div>
+  <div className="hero__date reveal-item" style={{ animationDelay: '270ms' }}>
+    <Calendar className="hero__date-icon" strokeWidth={1.5} aria-hidden="true" />
+    <span>NEET UG 2027 &middot; 2:00 PM IST</span>
+  </div>
 
-          <div className="reveal-item" style={{ animationDelay: '360ms' }}>
-            <Countdown />
-          </div>
-        </section>
+  <div className="reveal-item" style={{ animationDelay: '360ms' }}>
+    <Countdown />
+  </div>
+</section>
 
         <section className="pillars-section" aria-label="Preparation pillars">
           <span className="eyebrow">The Path</span>
