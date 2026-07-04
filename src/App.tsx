@@ -25,7 +25,7 @@ function App() {
           </span>
 
           <p className="wordmark reveal-item" style={{ animationDelay: '90ms' }}>
-            DareDevil
+            Dr. Rajnandani
           </p>
 
           <h1 className="headline reveal-item" style={{ animationDelay: '180ms' }}>
