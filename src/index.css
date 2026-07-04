@@ -359,6 +359,125 @@ body {
   }
 }
 
+.page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.page__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 3rem 1.25rem 5rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 6rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--c-teal);
+  margin-bottom: 1rem;
+}
+
+.wordmark {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+  background: linear-gradient(135deg, var(--c-indigo), var(--c-teal), var(--c-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+}
+
+.headline {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  font-weight: 500;
+  color: var(--c-text);
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
+}
+
+.headline__accent {
+  color: var(--c-text-dim);
+  font-weight: 400;
+}
+
+.hero__date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--c-text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero__date-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--c-teal);
+}
+
+.pillars-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1040px;
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--c-text);
+  margin: 0.5rem 0 2.5rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding-top: 2rem;
+}
+
+.footer__divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-indigo), transparent);
+  margin-bottom: 1.5rem;
+}
+
+.footer__quote {
+  font-style: italic;
+  color: var(--c-text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
 .ripple {
   position: absolute;
   border-radius: 50%;
