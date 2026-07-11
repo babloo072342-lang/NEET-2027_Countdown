@@ -1,17 +1,14 @@
-import { Calendar } from 'lucide-react';
+import { Calendar, Loader2 } from 'lucide-react';
 import { AuroraBackground } from './components/AuroraBackground';
 import { NoiseOverlay } from './components/NoiseOverlay';
 import { CursorGlow } from './components/CursorGlow';
 import { Countdown } from './components/Countdown';
 import { Pillars } from './components/Pillars';
+import { UserMenu } from './components/UserMenu';
+import { LoginPage } from './components/LoginPage';
+import { useAuth } from './hooks/useAuth';
 
-/**
- * Root composition. Deliberately holds no state of its own: the countdown
- * clock lives inside <Countdown />, and the aurora/cursor-glow effects
- * track the pointer via refs — so this component renders exactly once and
- * everything below animates independently without cascading re-renders.
- */
-function App() {
+function Dashboard() {
   return (
     <div className="page">
       <AuroraBackground />
@@ -19,28 +16,32 @@ function App() {
       <CursorGlow />
 
       <main className="page__content">
-      <section className="hero">
-  <span className="eyebrow reveal-item" style={{ animationDelay: '0ms' }}>
-    Mission NEET 2027
-  </span>
+        <div className="page__topbar">
+          <UserMenu />
+        </div>
 
-  <h1 className="wordmark reveal-item" style={{ animationDelay: '90ms' }}>
-    DareDevil
-  </h1>
+        <section className="hero">
+          <span className="eyebrow reveal-item" style={{ animationDelay: '0ms' }}>
+            Mission NEET 2027
+          </span>
 
-  <p className="tagline reveal-item" style={{ animationDelay: '180ms' }}>
-    Every second brings you closer <span className="tagline__accent">to May 2, 2027.</span>
-  </p>
+          <h1 className="wordmark reveal-item" style={{ animationDelay: '90ms' }}>
+            DareDevil
+          </h1>
 
-  <div className="hero__date reveal-item" style={{ animationDelay: '270ms' }}>
-    <Calendar className="hero__date-icon" strokeWidth={1.5} aria-hidden="true" />
-    <span>NEET UG 2027 &middot; 2:00 PM IST</span>
-  </div>
+          <p className="tagline reveal-item" style={{ animationDelay: '180ms' }}>
+            Every second brings you closer <span className="tagline__accent">to May 2, 2027.</span>
+          </p>
 
-  <div className="reveal-item" style={{ animationDelay: '360ms' }}>
-    <Countdown />
-  </div>
-</section>
+          <div className="hero__date reveal-item" style={{ animationDelay: '270ms' }}>
+            <Calendar className="hero__date-icon" strokeWidth={1.5} aria-hidden="true" />
+            <span>NEET UG 2027 &middot; 2:00 PM IST</span>
+          </div>
+
+          <div className="reveal-item" style={{ animationDelay: '360ms' }}>
+            <Countdown />
+          </div>
+        </section>
 
         <section className="pillars-section" aria-label="Preparation pillars">
           <span className="eyebrow">The Path</span>
@@ -58,6 +59,34 @@ function App() {
       </main>
     </div>
   );
+}
+
+function App() {
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="auth-loading">
+        <Loader2 className="auth-loading__spinner" strokeWidth={1.5} aria-hidden="true" />
+        <span className="auth-loading__text">Loading…</span>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <div className="page">
+        <AuroraBackground />
+        <NoiseOverlay />
+        <CursorGlow />
+        <main className="page__content">
+          <LoginPage />
+        </main>
+      </div>
+    );
+  }
+
+  return <Dashboard />;
 }
 
 export default App;
